@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Splunk-Test-Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="container">
+
+<div class="row">
+    <div class="col">
+        <h1>Send test messages to splunk</h1>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">URL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Send Critical</th>
+                <td><code>http://{{data.hostname}}:{{data.port}}/sendCritical</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Send Error</th>
+                <td><code>http://{{data.hostname}}:{{data.port}}/sendError</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Send Warning</th>
+                <td><code>http://{{data.hostname}}:{{data.port}}/sendWarning</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Send Info</th>
+                <td><code>http://{{data.hostname}}:{{data.port}}/sendInfo</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Send Debug</th>
+                <td><code>http://{{data.hostname}}:{{data.port}}/sendDebug</code></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <code>curl &lt;url to send&gt;</code>
+    </div>
+
+</body>
+</html>

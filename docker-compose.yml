@@ -1,5 +1,15 @@
 version: "3"
 services:
+  flask-app:
+    hostname: splunk-test-app
+    environment:
+      - HOSTNAME=0.0.0.0
+      - SPLUNK_TOKEN=147d3b46-e7c9-456a-ad0c-5a79b2f2ffea
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "splunk"
   splunk:
     hostname: splunk
     image: splunk/splunk
@@ -7,15 +17,6 @@ services:
       - splunk.env
     ports:
       - "8000:8000"
-      - "59997:9997"
+      - "9997:9997"
       - "8088:8088"
       - "1514:1514"
-  splunk-universal-forwarder:
-    hostname: splunk-universal-forwarder
-    image: splunk/universalforwarder
-    ports:
-      - "9997:9997"
-    env_file:
-      - forwarder.env
-    depends_on:
-      - "splunk"
